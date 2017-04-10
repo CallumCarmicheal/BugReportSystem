@@ -128,8 +128,6 @@ class MVCEloquentModel implements \JsonSerializable  {
 		$this->columns_changed = [];
 		$this->columns_values[static::$columns_id] = $PDO->lastInsertId();
 		$this->exists = true;
-		
-		// TODO: Update values from db
 	}
 	
 	private function generateInsert(&$sql, &$arg) {
@@ -204,7 +202,7 @@ class MVCEloquentModel implements \JsonSerializable  {
 		$sql = sprintf($fmt, $valueClause);
 	}
 	
-	public function delete($are_you_sure = false) {
+	public function delete($are_you_sure = true) {
 		if (!$are_you_sure)
 			return false;
 		
@@ -486,14 +484,12 @@ class MVCEloquentModel implements \JsonSerializable  {
 		/* Debugging */ {
 			
 			/*/
-			if (static::$table == "users_timed") {
 				echo "<pre>";
 				echo "\$sql: \t\t$sql\n";
 				echo "\$binds: \t";
 				var_dump($binds);
 				echo "\n";
 				exit;
-			}
 			//*/
 			
 		}

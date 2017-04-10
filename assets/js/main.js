@@ -7,6 +7,18 @@ function isFunction(functionToCheck) {
 	return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
 }
 
+function isNullOrWhitespaced(str){
+	var b1 = str === null || str.match(/^\s*$/) !== null;
+	var b2 = str.trim() == "";
+	
+	return b1 || b2;
+}
+
+function validateEmail(email) {
+	var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	return regex.test(email);
+}
+
 var Web;
 var bugReport;
 
@@ -153,13 +165,30 @@ bugReport = {
 		Edit: {
 			Modal:          null,
 			
+			Title:          null,
 			Email:          null,
 			Type:           null,
 			Description:    null,
 			Reproduce:      null,
 			Information:    null,
+			Fixed:          null,
+			Visible:        null,
 			
-			Save:           null,
+			Save:           null
+		},
+		
+		Query: {
+			Modal:          null,
+			
+			Email:          null,
+			Type:           null,
+			Description:    null,
+			Reproduce:      null,
+			Information:    null,
+			Fixed:          null,
+			Visible:        null,
+			
+			Start:          null
 		}
 	},
 	
@@ -193,7 +222,7 @@ bugReport = {
 				var vModal = bugReport.Modals.View;
 				var report = bugReport.JsonModal;
 					report = data;
-				
+					
 				if (report.error) {
 					Web.Prompt(
 						"An error occurred",
@@ -236,6 +265,17 @@ bugReport = {
 		}
 	}
 };
+
+function smoothScrollInto(selector) {
+	var target = $(selector);
+	//target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	if (target.length) {
+		$('html, body').animate({
+			scrollTop: target.offset().top - 60
+		}, 1000);
+		return false;
+	}
+}
 
 $(function() {
 	$(document).bind('pageinit', function () {

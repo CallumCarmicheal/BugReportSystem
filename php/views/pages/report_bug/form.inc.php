@@ -6,6 +6,11 @@
 	
 	<a href="<?=url('/Bugs')?>">View all verified reports.</a>
 	
+	<!-- Scroll to result -->
+	<script>$(function() {
+		smoothScrollInto('report-bug');
+	});</script>
+	
 <?php else: ?>
 	
 	<h3>Report bug</h3>

@@ -109,6 +109,10 @@ class BugReporter {
 	 * @return string
 	 */
 	public static function GenerateHTML($array) {
+		if ($array == null || is_null($array) || empty($array)) {
+			return "";
+		}
+		
 		if ($array instanceof mBugReport) {
 			/** @var mBugReport $mbr */
 			$mbr = $array;

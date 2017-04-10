@@ -8,43 +8,43 @@
 			</div>
 			<div class="modal-body" id="MODAL_REPORT_VIEW_Body">
 				<div class="row">
-					<div class="col-md-3">ID</div>
-					<div class="col-md-9 value-id"></div>
+					<div class="col-md-3 col-sm-4 col-xs-12">ID</div>
+					<div class="col-md-9 col-sm-8 col-xs-12 value-id"></div>
 				</div> <hr class="reset-margin">
 				
 				<div class="row">
-					<div class="col-md-3">Fixed</div>
-					<div class="col-md-9 value-fixed"></div>
+					<div class="col-md-3 col-sm-4 col-xs-12">Fixed</div>
+					<div class="col-md-9 col-sm-8 col-xs-12 value-fixed"></div>
 				</div> <hr class="reset-margin">
 				
 				<?php if(Authentication::isLoggedIn()): ?>
 					<!-- IF [ADMIN] -->
 					<div class="row section-email">
-						<div class="col-md-3 word-break">Visible</div>
-						<div class="col-md-9 word-break value-visible"></div>
+						<div class="col-md-3 col-sm-4 col-xs-12 word-break">Visible</div>
+						<div class="col-md-9 col-sm-8 col-xs-10 word-break value-visible"></div>
 					</div> <hr class="reset-margin">
 					
 					<div class="row section-email">
-						<div class="col-md-3 word-break">Reported by</div>
-						<div class="col-md-9 word-break value-email"></div>
+						<div class="col-md-3 col-sm-4 col-xs-12 word-break">Reported by</div>
+						<div class="col-md-9 col-sm-8 col-xs-12 word-break value-email"></div>
 					</div> <hr class="reset-margin">
 				<?php endif; ?>
 				
 				<div class="row">
-					<div class="col-md-3">Bug Type</div>
-					<div class="col-md-9 value-bugtype"></div>
+					<div class="col-md-3 col-sm-4 col-xs-12">Bug Type</div>
+					<div class="col-md-9 col-sm-8 col-xs-12 value-bugtype"></div>
 				</div> <hr class="reset-margin">
 				
 				
 				<div class="row">
-					<div class="col-md-3 word-break">How to reproduce</div>
-					<div class="col-md-9 word-break value-reproduce"></div>
+					<div class="col-md-3 col-sm-4 col-xs-12 word-break">How to reproduce</div>
+					<div class="col-md-9 col-sm-8 col-xs-12 word-break value-reproduce"></div>
 				</div> <hr class="reset-margin">
 				
 				<!-- IF NOT NULL [RESULT.ADDITIONAL_INFORMATION] -->
 				<div class="row section-info">
-					<div class="col-md-3 word-break">Additional Information</div>
-					<div class="col-md-9 word-break value-info"></div>
+					<div class="col-md-3 col-sm-4 col-xs-12 word-break">Additional Information</div>
+					<div class="col-md-9 col-sm-8 col-xs-12 word-break value-info"></div>
 				</div>
 			</div>
 			<div class="modal-footer">
@@ -65,20 +65,20 @@
 			<div class="modal-content">
 				
 				<div class="modal-header">
-					<h4 class="modal-title" id="MODAL_EDIT_REPORT_Title"></h4>
+					<h4 class="modal-title" id="MODAL_EDIT_REPORT_Title">Title</h4>
 				</div>
 				
 				<div class="modal-body" id="MODAL_EDIT_REPORT_Body">
 					<div class="row">
-						<div class="col-md-3"> <label for="MODAL_EDIT_REPORT_Email">Email</label> </div>
-						<div class="col-md-9">
+						<div class="col-md-3 col-sm-4 col-xs-12"> <label for="MODAL_EDIT_REPORT_Email">Email (r.)</label> </div>
+						<div class="col-md-9 col-sm-8 col-xs-12">
 							<input id="MODAL_EDIT_REPORT_Email" name="email" type="email" placeholder="someone@example.com" required value="">
 						</div>
 					</div> <hr class="reset-margin">
 					
 					<div class="row">
-						<div class="col-md-3"> <label for="MODAL_EDIT_REPORT_Type">Bug Type</label> </div>
-						<div class="col-md-9">
+						<div class="col-md-3 col-sm-4 col-xs-12"> <label for="MODAL_EDIT_REPORT_Type">Bug Type (r.)</label> </div>
+						<div class="col-md-9 col-sm-8 col-xs-12">
 							<select id="MODAL_EDIT_REPORT_Type" name="select" required>
 								<option value="1">Menu</option>
 								<option value="2">Gameplay</option>
@@ -88,32 +88,46 @@
 					</div> <hr class="reset-margin">
 					
 					<div class="row">
-						<div class="col-md-3"> <label for="MODAL_EDIT_REPORT_Brief">Brief description</label> </div>
-						<div class="col-md-9">
+						<div class="col-md-3 col-sm-4 col-xs-12"> <label for="MODAL_EDIT_REPORT_Brief">Brief description (r.)</label> </div>
+						<div class="col-md-9 col-sm-8 col-xs-12">
 							<input id="MODAL_EDIT_REPORT_Brief" name="brief" type="text" placeholder="A small description of the bug"
 							       maxlength="120" required value="">
 						</div>
 					</div> <hr class="reset-margin">
 					
 					<div class="row">
-						<div class="col-md-3"> <label for="MODAL_EDIT_REPORT_Reproduce">How to reproduce the bug</label> </div>
-						<div class="col-md-9">
+						<div class="col-md-3 col-sm-4 col-xs-12"> <label for="MODAL_EDIT_REPORT_Reproduce">How to reproduce the bug (r.)</label> </div>
+						<div class="col-md-9 col-sm-8 col-xs-12">
 							<textarea id="MODAL_EDIT_REPORT_Reproduce" name="reproduce" maxlength="3000" required
 					                  style="resize: vertical;"></textarea>
 						</div>
 					</div> <hr class="reset-margin">
 					
 					<div class="row">
-						<div class="col-md-3"> <label for="MODAL_EDIT_REPORT_Information">Additional Information</label> </div>
-						<div class="col-md-9">
+						<div class="col-md-3 col-sm-4 col-xs-12"> <label for="MODAL_EDIT_REPORT_Information">Additional Information</label> </div>
+						<div class="col-md-9 col-sm-8 col-xs-12">
 							<textarea id="MODAL_EDIT_REPORT_Information" name="information" maxlength="3000"
 							          style="resize: vertical;"></textarea>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-3 col-sm-4 col-xs-12"> <b>Visible</b> </div>
+						<div class="col-md-9 col-sm-8 col-xs-12">
+							<input type="checkbox" id="MODAL_EDIT_REPORT_Visible">
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-3 col-sm-4 col-xs-12"> <b>Fixed</b> </div>
+						<div class="col-md-9 col-sm-8 col-xs-12">
+							<input type="checkbox" id="MODAL_EDIT_REPORT_Fixed">
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<input class="button button-clear" data-dismiss="modal" type="submit" value="Cancel">
-					<button type="button" class="btn btn-default">Save</button>
+					<button type="button" id="MODAL_EDIT_REPORT_SAVE" class="btn btn-default">Save</button>
 				</div>
 			</div>
 		</div>

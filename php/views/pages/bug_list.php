@@ -5,7 +5,7 @@
 	<?php require (PAGES. "bugs/modal.php") ?>
 	
 	<section class="container" id="bugs">
-		<a class="button full-width" style="margin-bottom: 50px;" href="<?=url('/')?>">Report a bug</a>
+		<a class="button full-width" style="margin-bottom: 50px;" href="<?=url('/#report-bug')?>">Report a bug</a>
 		
 		<h3>Active Bugs</h3>
 		

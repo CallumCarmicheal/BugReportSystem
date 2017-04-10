@@ -13,7 +13,7 @@ $response = ['error' => false];
 if (empty($_POST['id'])) {
 	$response['error'] = true;
 	$response['message'] = "Could not find id in request.";
-	goto Result;
+	goto response;
 }
 
 // Get the id
@@ -25,7 +25,7 @@ $query = mBugReport::findByID($id);
 if ($query->isEmpty()) {
 	$response['error'] = true;
 	$response['message'] = "Could not find requested bug report.";
-	goto Result;
+	goto response;
 }
 
 // Get the report
@@ -40,7 +40,7 @@ if (!$report->isVisible() && $nLoggedIn) {
 	// Cannot show this report to the user
 	$response['error'] = true;
 	$response['message'] = "Could not find requested bug report.";
-	goto Result;
+	goto response;
 }
 
 // Sanitise Data
@@ -63,6 +63,6 @@ if ($nLoggedIn) {
 }
 
 
-Result:
+response:
 header('Content-Type: application/json');
 die(json_encode($response));

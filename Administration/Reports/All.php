@@ -23,4 +23,4 @@ $_BUG_LIST = [
 ];
 
 // Show the view
-require (VIEWS. "pages/admin/_BUG_LIST.php");
+require (VIEWS. "pages/admin/All.php");

@@ -24,7 +24,7 @@ $AUTH_PASSWORD      = "";
 
 //
 // Debug database activity
-$DEBUG              = false;
+$DEBUG              = true;
 
 //
 // Now the settings are stored for access

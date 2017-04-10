@@ -15,8 +15,6 @@
 	</header>
 
 	<section class="container" id="report-bug">
-		<br><br>
-		
 		<?php /* Include: The bug report form */ ?>
 		<?php require(PAGES. "report_bug/form.inc.php") ?>
 	</section>

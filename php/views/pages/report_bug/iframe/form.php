@@ -1,38 +1,22 @@
-<html>
-<head>
-	<title>Bug Report</title>
-	
-	<meta charset="utf-8">
-	<meta name="viewport"       content="width=device-width, initial-scale=1">
-	<meta name="author"         content="">
-	<meta name="description"    content="">
-	<link rel="icon"            href="https://milligram.github.io/images/icon.png">
-	
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-	<link rel="stylesheet" href="https://milligram.github.io/styles/main.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
-	
-	<link rel="stylesheet" type="text/css" href="https://whitecircle.maxlouiscreative.com/wp-content/uploads/2017/04/bootstrap.modal_.css">
-</head>
+<?php $_PAGE = ['Title' => "Bug Report - WhiteCircle"]; ?>
 
-<body>
-
-<main class="wrapper">
+<?php require (LAYOUTS. "minimal.start.php"); ?>
 	<section class="container" id="formSection">
-		<?php if (!empty($error)): ?>
-			<pre><code>An error occurred: <?=$error?></code></pre>
-		<?php endif; ?>
+		<h3>Report bug</h3>
+	
+	<?php if (!empty($formReport_Error)): ?>
+		<pre><code>An error occurred: <?=$formReport_Error?></code></pre>
+	<?php endif; ?>
 		
-		<form action="<?=url('/IFrame/Report')?>" method="post">
+		<form action="<?=url('/Home')?>" method="post">
 			<fieldset>
-				<div class="col-md-3"> <label for="emailField">Email</label> </div>
+				<div class="col-md-3"> <label for="emailField">Email (r.)</label> </div>
 				<div class="col-md-9">
 					<input id="emailField" name="email" type="email" placeholder="someone@example.com" required <?=$formEmail?>>
 				</div>
 				<br>
 				
-				<div class="col-md-3"> <label for="locationType">Bug Type (Required)</label> </div>
+				<div class="col-md-3"> <label for="locationType">Bug Type (r.)</label> </div>
 				<div class="col-md-9">
 					<select id="locationType" name="select" required>
 						<option value="1" <?=$formSelect_1?>>Menu</option>
@@ -42,44 +26,50 @@
 				</div>
 				<br>
 				
-				<div class="col-md-3"> <label for="briefField">Brief description</label> </div>
+				<div class="col-md-3"> <label for="briefField">Brief description (r.)</label> </div>
 				<div class="col-md-9">
 					<input id="briefField" name="brief" type="text" placeholder="A small description of the bug" maxlength="120" required <?=$formBrief?>>
 				</div>
 				<br>
 				
-				<div class="col-md-3"> <label for="reproduceBug">How to reproduce the bug (required)</label> </div>
+				<div class="col-md-3"> <label for="reproduceBug">How to reproduce the bug (r.)</label> </div>
 				<div class="col-md-9">
-						<textarea id="reproduceBug" name="reproduce" maxlength="3000" required
-						          style="resize: vertical;"><?=$formReproduce?></textarea>
+					<textarea id="reproduceBug" name="reproduce" maxlength="3000" required
+					          style="resize: vertical;"><?=$formReproduce?></textarea>
 				</div>
 				<br>
 				
 				<div class="col-md-3"> <label for="additionalInformation">Additional Information</label> </div>
 				<div class="col-md-9">
-						<textarea id="additionalInformation" name="information" maxlength="3000"
-						          style="resize: vertical;"><?=$formInformation?></textarea>
+					<textarea id="additionalInformation" name="information" maxlength="3000"
+					          style="resize: vertical;"><?=$formInformation?></textarea>
 				</div>
 				
 				
 				<?php /* Check if recaptcha is enabled if it is show the recaptcha form! */
-				    if (RECAPTCHA_ENABLED): ?>
-					    <div class="col-md-3"></div>
-						<div class="col-md-9">
-							<?= Lib\GoogleRecaptcha::Create() ?>
-						</div>
-					    <div class="col-md-12">&nbsp;</div>
+				if (RECAPTCHA_ENABLED): ?>
+					<div class="col-md-3"></div>
+					<div class="col-md-9">
+						<?= Lib\GoogleRecaptcha::Create() ?>
+					</div>
+					<div class="col-md-12">&nbsp;</div>
 				<?php endif; ?>
 				
 				<div class="col-md-12">
 					<input class="button-primary" style="width: 100%" type="submit" value="Report">
 				</div>
+				
+				<div class="col-md-12">
+					<p>Please do not fill in any personal information, this information will be displayed in public domain once verified
+						(Brief, Reproduce, Additional Information).
+						
+						Your email address is only visible to staff,
+						if any further information is required you will be
+						contacted via email by a staff member.</p>
+				</div>
 			</fieldset>
 		</form>
+		
+		<a href="<?=url('/IFrame/Bugs')?>">View all verified reports.</a>
 	</section>
-</main>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type='text/javascript' src='https://whitecircle.maxlouiscreative.com/wp-content/uploads/2017/04/bootstrap.min_.js'></script>
-</body>
-</html>
+<?php require (LAYOUTS. "minimal.end.php"); ?>

@@ -16,6 +16,8 @@
 
 <body>
 
+<?php include (VIEWS. "layouts/sections/top-scripts.php"); ?>
+
 <main class="wrapper">
 	<nav class="navigation">
 		<section class="container">
